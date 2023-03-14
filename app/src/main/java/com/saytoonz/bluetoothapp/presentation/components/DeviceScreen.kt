@@ -18,7 +18,9 @@ import com.saytoonz.bluetoothapp.presentation.BluetoothUIState
 fun DeviceScreen(
     state: BluetoothUIState,
     onStartScan: () -> Unit,
-    onStopScan: () -> Unit
+    onStopScan: () -> Unit,
+    onStartServer: () -> Unit,
+    onDeviceClicked: (BluetoothDeviceDomain) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -28,7 +30,7 @@ fun DeviceScreen(
         BluetoothDeviceList(
             pairedDevices = state.pairedDevices,
             scannedDevices = state.scannedDevices,
-            onClick = {},
+            onClick = onDeviceClicked,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
@@ -43,6 +45,9 @@ fun DeviceScreen(
             }
             Button(onClick = onStopScan) {
                 Text(text = "Stop Scan")
+            }
+            Button(onClick = onStartServer) {
+                Text(text = "Start Server")
             }
         }
     }
