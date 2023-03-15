@@ -20,4 +20,8 @@ object AppModule {
         return  AndroidBluetoothController(context);
     }
 
+//    @Provides
+//    @Singleton
+//    fun
+
 }
